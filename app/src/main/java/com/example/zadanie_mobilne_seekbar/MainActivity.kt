@@ -2,6 +2,7 @@ package com.example.zadanie_mobilne_seekbar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.SeekBar
@@ -30,5 +31,7 @@ class MainActivity : AppCompatActivity() {
         val  progressViewHorizontal = findViewById<ProgressBar>(R.id.progressBarWidth)
         val  progressViewVertical = findViewById<ProgressBar>(R.id.progressBarHeight)
 
+        //reset button
+        val reset = findViewById<Button>(R.id.Reset)
     }
 }
