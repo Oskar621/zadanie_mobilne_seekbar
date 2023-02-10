@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //picture declaration
-        val picture1 = findViewById<ImageView>(R.id.imgPies1);
-        val picture2 = findViewById<ImageView>(R.id.imgPies2);
-        val picture3 = findViewById<ImageView>(R.id.imgPies3);
+        val picture1 = findViewById<ImageView>(R.id.imgPies1)
+        val picture2 = findViewById<ImageView>(R.id.imgPies2)
+        val picture3 = findViewById<ImageView>(R.id.imgPies3)
 
         //seekbary vertical
         val seekbVerticalp1 = findViewById<SeekBar>(R.id.seekBHeightp1)
@@ -44,6 +45,20 @@ class MainActivity : AppCompatActivity() {
             seekbVerticalp3.progress = 100
         }
 
+        seekbVerticalp1.setOnSeekBarChangeListener(
+            object: OnSeekBarChangeListener{
+                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean){
+                    val scale = progress/100f
+                    picture1.scaleY = scale
+                }
 
-    }
+                override fun onStartTrackingTouch(p0: SeekBar?) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onStopTrackingTouch(p0: SeekBar?) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
 }
